@@ -6,7 +6,9 @@
 
 ## 首次安装
 
-下载本仓库 ZIP 并完整解压。在 Codex 中发送，替换为自己的实际路径：
+1. 登录有访问权限的 GitHub 账号，打开 [仓库主页](https://github.com/x2185/toy-demo-roughcut)。这是私有仓库，同事需先由仓库所有者添加为协作者并接受邀请；显示404时先检查账号及权限。
+2. 点击绿色 **Code → Download ZIP**，下载后完整解压。不要只下载 SKILL.md。
+3. 打开解压目录，确认能看到 `toy-demo-roughcut` 文件夹、`docs` 和 `安装到Codex.ps1`。复制资源管理器地址栏中的实际完整路径，在 Codex 中发送：
 
 ```text
 请把这个目录中的 toy-demo-roughcut 安装为我的个人技能：
@@ -14,6 +16,8 @@ D:\下载\toy-demo-roughcut-main
 ```
 
 每台电脑只需安装一次。Windows也可运行根目录 `安装到Codex.ps1`；遇到已有同名目录会停止，不覆盖。
+
+上面的路径只是示例，须替换为自己电脑上解压后能看到技能文件夹的目录。ZIP下载不需要安装Git。Word手册位于解压后的 `docs` 文件夹。
 
 依赖 Python 3.10+、FFmpeg、ffprobe，观察联系表另需 Pillow。无需额外模型API Key，不依赖OpenStoryline或剪映；Codex分析仍依赖当前会话服务。
 
@@ -30,10 +34,11 @@ D:\下载\toy-demo-roughcut-main
 
 ## 更新技能
 
-修改后提交并推送本仓库，再让各使用者更新本地技能：
+后续更新时，重新从本仓库 **Code → Download ZIP** 下载并解压最新版，再把解压目录的实际路径交给 Codex：
 
 ```text
-请用新版仓库中的 toy-demo-roughcut 更新我的个人技能。
+请用这个目录中的 toy-demo-roughcut 更新我的个人技能：
+D:\下载\toy-demo-roughcut-main
 先备份旧版，保留 local-memory-location.txt 和本机记忆。
 ```
 
