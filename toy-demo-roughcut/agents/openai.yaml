@@ -1,0 +1,4 @@
+interface:
+  display_name: "玩具操作视频粗剪"
+  short_description: "按团队实拍样例裁剪玩具展示、开箱与操作视频，保留关键动作和原生分辨率。"
+  default_prompt: "使用 $toy-demo-roughcut 按团队参考风格粗剪这个玩具操作视频，保留原生分辨率并另存成片。"

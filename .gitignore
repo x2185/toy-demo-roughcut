@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+local-memory-location.txt
+**/preferences.md
+**/feedback.md
+**/lessons.md
+**/history/
+*.mp4
+*.mov
+*.npy
+*.edit.json
+roughcut-*/
+本机剪辑记忆/
+skill-backup-*/
