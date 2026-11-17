@@ -6,6 +6,27 @@
 
 ## 首次安装
 
+### 方法一 让Codex精确定位并安装
+
+复制下面整段到Codex，无需先手动下载或填写本机目录：
+
+```text
+请在GitHub精确定位并核对这个项目，然后下载并安装为我的个人技能：
+仓库：https://github.com/x2185/toy-demo-roughcut
+所有者：x2185
+仓库名：toy-demo-roughcut
+分支：main
+技能子目录：toy-demo-roughcut
+
+请核对所有者、仓库名及该子目录的SKILL.md，避免下载同名项目。
+安装完整技能目录，并检查Python、FFmpeg、ffprobe和Pillow依赖。
+如果已安装，请先备份再更新，保留local-memory-location.txt和本机记忆。
+```
+
+提供准确链接即可定位，不必依赖搜索排名或模糊关键词。Codex可使用GitHub技能安装工具下载；网络或目录权限受限时，按应用提示授权。每台电脑安装一次，下次直接调用技能。
+
+### 方法二 从GitHub手动下载
+
 1. 打开 [仓库主页](https://github.com/x2185/toy-demo-roughcut)。仓库已公开，浏览和下载ZIP无需协作者权限。
 2. 点击绿色 **Code → Download ZIP**，下载后完整解压。不要只下载 SKILL.md。
 3. 打开解压目录，确认能看到 `toy-demo-roughcut` 文件夹、`docs` 和 `安装到Codex.ps1`。复制资源管理器地址栏中的实际完整路径，在 Codex 中发送：
