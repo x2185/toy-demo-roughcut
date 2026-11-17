@@ -6,7 +6,7 @@
 
 ## 首次安装
 
-1. 登录有访问权限的 GitHub 账号，打开 [仓库主页](https://github.com/x2185/toy-demo-roughcut)。这是私有仓库，同事需先由仓库所有者添加为协作者并接受邀请；显示404时先检查账号及权限。
+1. 打开 [仓库主页](https://github.com/x2185/toy-demo-roughcut)。仓库已公开，浏览和下载ZIP无需协作者权限。
 2. 点击绿色 **Code → Download ZIP**，下载后完整解压。不要只下载 SKILL.md。
 3. 打开解压目录，确认能看到 `toy-demo-roughcut` 文件夹、`docs` 和 `安装到Codex.ps1`。复制资源管理器地址栏中的实际完整路径，在 Codex 中发送：
 
