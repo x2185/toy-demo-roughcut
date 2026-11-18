@@ -21,6 +21,7 @@
 请核对所有者、仓库名及该子目录的SKILL.md，避免下载同名项目。
 安装完整技能目录，并检查Python、FFmpeg、ffprobe和Pillow依赖。
 如果已安装，请先备份再更新，保留local-memory-location.txt和本机记忆。
+安装完成后，请读取技能内 references/first-use.md，主动给我简短入门提示。
 ```
 
 提供准确链接即可定位，不必依赖搜索排名或模糊关键词。Codex可使用GitHub技能安装工具下载；网络或目录权限受限时，按应用提示授权。每台电脑安装一次，下次直接调用技能。
@@ -87,3 +88,7 @@ D:\下载\toy-demo-roughcut-main
 ```
 
 发布者后续修改技能时须同步更新release.json的版本及文件哈希，才能可靠检测。具体流程见技能内references/updates.md。
+
+## 安装完成后的提示
+
+安装方Codex应读取技能中的references/first-use.md，主动提供调用示例、素材归档建议、首版检查重点及反馈方法，无需用户逐条确认。若安装时未执行，首次调用技能时会按本机标记补充提示。此功能由Codex读取指令执行，不是安装后自动弹窗；常规升级不重复整套介绍。
