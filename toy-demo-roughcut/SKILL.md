@@ -48,4 +48,4 @@ Codex 查看画面做语义判断，本地 FFmpeg 执行。无需 OpenStoryline�
 
 “使用 $toy-demo-roughcut，粗剪 D:\素材\玩具.mp4，按团队风格保留主要操作、原声和原分辨率。”
 
-需Python 3.10+、ffmpeg/ffprobe，联系表另需Pillow。先检查现有工具，仅安装缺失项。脚本与Skill一起分发，不依赖原作者用户名、临时参考视频路径或其他项目。
+需Python 3.10+、ffmpeg/ffprobe，联系表另需Pillow。首次安装或环境异常时运行 `scripts/check_environment.py`，按素材所需模式检查编码器及滤镜，只解决缺失项。脚本与Skill一起分发，不依赖原作者用户名、临时参考视频路径或其他项目。

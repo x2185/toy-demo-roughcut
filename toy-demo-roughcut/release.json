@@ -1,20 +1,21 @@
 {
-  "version": "1.2.0",
-  "changes": "首次安装或首次使用时给出简短入门指导",
+  "version": "1.2.1",
+  "changes": "安装环境分模式检查；成片验收后交付；同步安装与更新手册",
+  "hash_mode": "utf8-no-bom-lf",
   "files": {
     "agents/openai.yaml": "e5653993c0579c0fec4226693e7e97c8d55f0d22933162310224292133913e47",
     "references/cut-review.md": "77eab6b4f132e45079241d6c333a514fb1231eddcd751611e00d4d773af7f30f",
     "references/cut-techniques.md": "f79f75e35b8335a2dbc0c1c0f47f2ada5e32580f3a6214c6aac8ef4ddde2694e",
     "references/eight-pairs.md": "991464d0e1626e44a91eadcc9430e31b6eb2a0058b53c38d6097ddd632c89603",
-    "references/execution.md": "f894a0e09e55307f6774157fc5560c565eb3fb52f556a997cf5101aa0eb1cd44",
-    "references/first-use.md": "5a67c2550d96a8b7c1dacf305994e926d4314e349eab74baa8e37bddd9674a8f",
+    "references/execution.md": "afaac62c74c9b3a1d33baca7adf46356102b5aeb073e62694f187c6284a57917",
+    "references/first-use.md": "bc8b37734821118f0c5f9e690dfa65b0134ba4b269465f21db14cbf22760cbf5",
     "references/generalization.md": "3964871d27d86ed8ff53d3c573bd620d787034d0cb5dfaf1876a897a6e9c0614",
     "references/local-memory.md": "044e33ddc52236430927bdd4d43dc218ff7885c0f346d7ce8abcdbc72be0878d",
     "references/team-style.md": "ceec4997b05ce430d7908f664b0381b5c911633c80527134542685d07ab83108",
     "references/updates.md": "1539834c1186f34ca5b7bc376de691fb3e1829e47487fe51b5e06d8f47f9f318",
+    "scripts/check_environment.py": "fae8462826df666913193522b143f97da1d855f2c43a20dbe73b0b488dc119af",
     "scripts/inspect_video.py": "4e3399c7b617a669cc99d6a345f72f417932e38956bea5eb4c4faff9ac629652",
-    "scripts/render_edit.py": "9ff7e0da1cdfedaeeb6b2eed0342e462db80ef4758a89986756e0d100c519597",
-    "SKILL.md": "178e9aa6489990c0a500fe483d7c6984eb46bd477b77ae44fc3267a1bbdba5ee"
-  },
-  "hash_mode": "utf8-no-bom-lf"
+    "scripts/render_edit.py": "f851d5ad09066348be6daccbaf540dbb6dc7225db17abf353b04f16c042929da",
+    "SKILL.md": "c85af273fd8ecc67aac05dd2cc37c5c9f0190922e2afe42ba16afe7d19c61a9b"
+  }
 }

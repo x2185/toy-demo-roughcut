@@ -19,7 +19,7 @@
 技能子目录：toy-demo-roughcut
 
 请核对所有者、仓库名及该子目录的SKILL.md，避免下载同名项目。
-安装完整技能目录，并检查Python、FFmpeg、ffprobe和Pillow依赖。
+安装完整技能目录，用实际剪辑的Python运行 scripts/check_environment.py，检查Python、Pillow、FFmpeg和所需编码器及滤镜。
 如果已安装，请先备份再更新，保留local-memory-location.txt和本机记忆。
 安装完成后，请读取技能内 references/first-use.md，主动给我简短入门提示。
 ```
@@ -37,11 +37,13 @@
 D:\下载\toy-demo-roughcut-main
 ```
 
-每台电脑只需安装一次。Windows也可运行根目录 `安装到Codex.ps1`；遇到已有同名目录会停止，不覆盖。
+每台电脑只需安装一次。Windows也可运行根目录 `安装到Codex.ps1`；遇到已有同名目录会停止，不覆盖。默认位置为当前用户的 `.codex/skills`，已设置 `CODEX_HOME` 时使用其下的 `skills`。
 
 上面的路径只是示例，须替换为自己电脑上解压后能看到技能文件夹的目录。ZIP下载不需要安装Git。Word手册位于解压后的 `docs` 文件夹。
 
 依赖 Python 3.10+、FFmpeg、ffprobe，观察联系表另需 Pillow。无需额外模型API Key，不依赖OpenStoryline或剪映；Codex分析仍依赖当前会话服务。
+
+安装脚本复制技能后会检查环境，分别显示普通SDR、HDR转SDR和HDR输出是否可用；只检查、不自动下载工具。缺项不会被报成“全部安装成功”，已复制的技能文件也不会因此删除。可运行 `./安装到Codex.ps1 -CheckOnly` 单独重查；有多个Python时用 `-PythonPath "实际的python.exe完整路径"` 指定。缺Pillow时须给同一个Python安装，避免装到别的环境。检查通过后仍需用实际素材验证。
 
 ## 日常使用
 
@@ -54,9 +56,13 @@ D:\下载\toy-demo-roughcut-main
 
 分类、复核和经验记录在当前任务中自动处理。反馈可直接说“第二版第8秒多留一点回弹”。本机记忆按适用范围积累，不自动共享，不随仓库更新上传；没有后台常驻学习程序。
 
+成片先在独立临时目录生成，通过尺寸、时长、音轨和全片解码检查后才交付正式MP4及同名 `.edit.json`。渲染或验收失败不交付未完成视频；用新的版本文件名重试，已有文件不会覆盖。
+
 ## 更新技能
 
-后续更新时，重新从本仓库 **Code → Download ZIP** 下载并解压最新版，再把解压目录的实际路径交给 Codex：
+带 `release.json` 的版本会在每个新对话首次调用时，由Codex尝试检查上游并按流程更新。检查失败继续使用本地版；本地有修改冲突时保留现有文件并提示。仓库更新不会在未调用技能时后台推送到电脑。
+
+旧版本首次升级、主动更新或自动检查失败时，可让Codex从本仓库下载；也可重新 **Code → Download ZIP** 并解压，再发送：
 
 ```text
 请用这个目录中的 toy-demo-roughcut 更新我的个人技能：
@@ -64,7 +70,7 @@ D:\下载\toy-demo-roughcut-main
 先备份旧版，保留 local-memory-location.txt 和本机记忆。
 ```
 
-仓库更新不等于已安装技能自动更新。个人记录不应复制进仓库。
+先备份，保留本机配置和经验。个人记录不应复制进仓库。详细机制及旧版升级提示见下方“调用时检查更新”。
 
 ## 文件
 

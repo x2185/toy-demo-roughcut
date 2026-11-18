@@ -2,6 +2,7 @@
 import argparse
 import json
 import math
+import os
 import shutil
 import subprocess
 import tempfile
@@ -36,6 +37,34 @@ def atempo(speed):
     return ','.join(filters+[f'atempo={speed:.9f}'])
 
 def run(cmd):subprocess.run(cmd,check=True)
+
+def publish_new(staged, destination):
+    """Publish a validated file on the same volume without replacing any file."""
+    if os.name == 'nt':
+        # Windows rename fails if destination exists; POSIX rename would replace it.
+        staged.rename(destination)
+    else:
+        os.link(staged, destination)
+        staged.unlink()
+
+def verify_output(path, width, height, summary, expect_audio):
+    actual=probe(path)
+    video=next(s for s in actual['streams'] if s['codec_type']=='video')
+    if (video['width'],video['height'])!=(width,height):raise RuntimeError('Output dimensions changed unexpectedly')
+    if abs(float(actual['format']['duration'])-summary['expected_duration'])>max(0.15,2/summary['fps']):raise RuntimeError('Output duration exceeds tolerance')
+    if any(s['codec_type']=='audio' for s in actual['streams']) != expect_audio:raise RuntimeError('Output audio track differs from plan')
+    run(['ffmpeg','-v','error','-xerror','-i',str(path),'-f','null','-'])
+    return float(actual['format']['duration'])
+
+def publish_result(staged_video, staged_record, target):
+    record=target.with_suffix('.edit.json')
+    # Publish the record first: an incomplete/unverified MP4 never gets the final name.
+    publish_new(staged_record, record)
+    try:
+        publish_new(staged_video, target)
+    except BaseException:
+        record.unlink()
+        raise
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
@@ -94,13 +123,12 @@ def main():
             run(['ffmpeg','-v','error','-n','-i',str(source),'-filter_complex',';'.join(chains),'-map','[out]','-ar','48000','-c:a','pcm_s16le',str(wav)])
             inputs+=['-i',str(wav)]
             sound=['-map','0:v:0','-map','1:a:0','-c:a','aac','-b:a','192k','-shortest']
-        run(['ffmpeg','-v','error','-n',*inputs,'-c:v','copy',*sound,'-movflags','+faststart',str(target)])
-    actual=probe(target); v=next(s for s in actual['streams'] if s['codec_type']=='video')
-    if (v['width'],v['height'])!=(w,h):raise RuntimeError('Output dimensions changed unexpectedly')
-    if abs(float(actual['format']['duration'])-summary['expected_duration'])>max(0.15,2/fps):raise RuntimeError('Output duration exceeds tolerance')
-    run(['ffmpeg','-v','error','-i',str(target),'-f','null','-'])
-    summary['actual_duration']=float(actual['format']['duration'])
-    target.with_suffix('.edit.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
+        staged_video=temp/'verified.mp4'
+        run(['ffmpeg','-v','error','-n',*inputs,'-c:v','copy',*sound,'-movflags','+faststart',str(staged_video)])
+        summary['actual_duration']=verify_output(staged_video,w,h,summary,has_audio and audio=='keep')
+        staged_record=temp/'verified.edit.json'
+        staged_record.write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
+        publish_result(staged_video,staged_record,target)
     print('VERIFIED',target,flush=True)
 
 if __name__=='__main__':main()

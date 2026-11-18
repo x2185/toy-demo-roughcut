@@ -2,6 +2,8 @@
 
 Python3.10+，ffmpeg/ffprobe（libx264；HDR另需libx265；HDR→SDR需zscale、tonemap）。联系表用Pillow，缺失时`python -m pip install pillow`。无需其他剪辑项目或额外模型API。
 
+首次安装、切换Python或遇到工具错误时运行 `python scripts/check_environment.py`，分别报告普通SDR、HDR转SDR和HDR输出能力；`--mode hdr-to-sdr`或`--mode preserve-hdr`可核对当前素材所需模式，缺项返回非零。检查只读、不下载安装，也不等同于真实素材已渲染成功。使用检查时同一个Python执行观察脚本。
+
 ## 观察
 
 `python scripts/inspect_video.py "源.mp4" "观察目录" --step 2`
@@ -36,7 +38,7 @@ UTF-8 JSON，相对路径以计划文件目录为基准，区间是**原素材�
 
 `python scripts/render_edit.py "计划.json"`
 
-分段视频不带AAC，原声按同区间处理成连续音轨后一次编码，避免逐段AAC填充拖长。输出MP4及`.edit.json`，不覆盖原片。自动检查尺寸/时长/全片解码，仍需查看动作及切点。
+分段视频不带AAC，原声按同区间处理成连续音轨后一次编码，避免逐段AAC填充拖长。先在输出目录下的独立临时目录渲染，核对尺寸、时长、音轨及全片解码后，再以正式文件名交付MP4和`.edit.json`，不覆盖原片或已有文件。失败不会把未验收视频留作正式成片；仍需查看动作及切点。两份文件不是跨文件事务，异常断电可能只留下记录文件，不能据此认定已有成片。
 
 HLG/PQ重编码不保留杜比视界动态元数据，也不是无损复制。SDR用H.264，HDR用HEVC10-bit。没有HDR信息不能硬标HDR。
 
