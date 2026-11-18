@@ -2,7 +2,7 @@
   "version": "1.1.0",
   "changes": "调用时检查更新，验证、备份、冲突保护和回退流程",
   "files": {
-    "agents/openai.yaml": "03446e538822063d15401119acf3e1253c5194e50377c7b3da8ddd0f12c799e8",
+    "agents/openai.yaml": "e5653993c0579c0fec4226693e7e97c8d55f0d22933162310224292133913e47",
     "references/cut-review.md": "77eab6b4f132e45079241d6c333a514fb1231eddcd751611e00d4d773af7f30f",
     "references/cut-techniques.md": "f79f75e35b8335a2dbc0c1c0f47f2ada5e32580f3a6214c6aac8ef4ddde2694e",
     "references/eight-pairs.md": "991464d0e1626e44a91eadcc9430e31b6eb2a0058b53c38d6097ddd632c89603",
@@ -10,9 +10,10 @@
     "references/generalization.md": "3964871d27d86ed8ff53d3c573bd620d787034d0cb5dfaf1876a897a6e9c0614",
     "references/local-memory.md": "044e33ddc52236430927bdd4d43dc218ff7885c0f346d7ce8abcdbc72be0878d",
     "references/team-style.md": "ceec4997b05ce430d7908f664b0381b5c911633c80527134542685d07ab83108",
-    "references/updates.md": "eec1d0e9367cf649aaa67426113820064e281c9d0367fcd76bb78cd31fff29b9",
+    "references/updates.md": "1539834c1186f34ca5b7bc376de691fb3e1829e47487fe51b5e06d8f47f9f318",
     "scripts/inspect_video.py": "4e3399c7b617a669cc99d6a345f72f417932e38956bea5eb4c4faff9ac629652",
     "scripts/render_edit.py": "9ff7e0da1cdfedaeeb6b2eed0342e462db80ef4758a89986756e0d100c519597",
-    "SKILL.md": "5e7eb88904810db5c808e33639541f8c360bede59df04d701584148705d7751f"
-  }
+    "SKILL.md": "b8e5144a291ecdd8c3856b9ec046d6f2601be397af2f1e321ac8cde1b8ee24e6"
+  },
+  "hash_mode": "utf8-no-bom-lf"
 }
